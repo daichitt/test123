@@ -30,32 +30,45 @@ const AdminDashboard = () => {
     }, []);
 
     if (error) {
-        return <div className="error-message">{error}</div>;
+        return (
+            <div className="text-red-500 text-center py-8 mx-4">
+                {error}
+            </div>
+        );
     }
 
     return (
-        <div className="admin-dashboard">
-            <h2>Dashboard</h2>
-            <div className="stats-container">
-                <div className="stat">
-                    <h3>{stats.categories}</h3>
-                    <p>Categories</p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">Dashboard</h2>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {/* Stats Cards */}
+                <div className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
+                    <h3 className="text-3xl font-bold text-orange-500 mb-2">{stats.categories}</h3>
+                    <p className="text-sm font-medium text-gray-600">Categories</p>
                 </div>
-                <div className="stat">
-                    <h3>{stats.foods}</h3>
-                    <p>Foods</p>
+
+                <div className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
+                    <h3 className="text-3xl font-bold text-orange-500 mb-2">{stats.foods}</h3>
+                    <p className="text-sm font-medium text-gray-600">Foods</p>
                 </div>
-                <div className="stat">
-                    <h3>{stats.orders}</h3>
-                    <p>Total Orders</p>
+
+                <div className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
+                    <h3 className="text-3xl font-bold text-orange-500 mb-2">{stats.orders}</h3>
+                    <p className="text-sm font-medium text-gray-600">Total Orders</p>
                 </div>
-                <div className="stat">
-                    <h3>{stats.users}</h3>
-                    <p>Total Users</p>
+
+                <div className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
+                    <h3 className="text-3xl font-bold text-orange-500 mb-2">{stats.users}</h3>
+                    <p className="text-sm font-medium text-gray-600">Total Users</p>
                 </div>
-                <div className="stat-item revenue">
-                    <h3>Total Revenue</h3>
-                    <p className="revenue-amount">${Number(stats.revenue || 0).toFixed(2)}</p>
+
+                {/* Revenue Card - Full Width */}
+                <div className="col-span-1 sm:col-span-2 lg:col-span-4 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg shadow-sm p-8 text-white">
+                    <h3 className="text-lg font-medium mb-2">Total Revenue</h3>
+                    <p className="text-4xl font-bold">
+                        ${Number(stats.revenue || 0).toFixed(2)}
+                    </p>
                 </div>
             </div>
         </div>

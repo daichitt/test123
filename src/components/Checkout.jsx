@@ -67,59 +67,88 @@ const Checkout = ({ cartItems, totalPrice, onConfirmOrder, loggedInUser }) => {
     };
 
     return (
-        <div className="checkout-container">
-            <h2>Checkout</h2>
-            <div className="radio-group">
-                <label>
-                    <input
-                        type="radio"
-                        value="delivery"
-                        checked={deliveryMethod === 'delivery'}
-                        onChange={() => setDeliveryMethod('delivery')}
-                    />
-                    Delivery
-                </label>
-                <label>
-                    <input
-                        type="radio"
-                        value="pickup"
-                        checked={deliveryMethod === 'pickup'}
-                        onChange={() => setDeliveryMethod('pickup')}
-                    />
-                    Pickup
-                </label>
-            </div>
-            {deliveryMethod === 'delivery' && (
-                <div className="input-group">
-                    <label>Address:</label>
-                    <input
-                        type="text"
-                        value={address}
-                        onChange={(e) => setAddress(e.target.value)}
-                        placeholder="Enter your delivery address"
-                        required
-                    />
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div className="bg-white rounded-lg shadow-sm p-6 space-y-6">
+                <h2 className="text-2xl font-semibold text-gray-900">Checkout</h2>
+                
+                {/* Delivery Method */}
+                <div className="space-y-2">
+                    <p className="text-sm font-medium text-gray-700">Delivery Method</p>
+                    <div className="flex space-x-4">
+                        <label className="flex items-center space-x-2 cursor-pointer">
+                            <input
+                                type="radio"
+                                value="delivery"
+                                checked={deliveryMethod === 'delivery'}
+                                onChange={() => setDeliveryMethod('delivery')}
+                                className="w-4 h-4 text-orange-500 focus:ring-orange-500"
+                            />
+                            <span className="text-gray-700">Delivery</span>
+                        </label>
+                        <label className="flex items-center space-x-2 cursor-pointer">
+                            <input
+                                type="radio"
+                                value="pickup"
+                                checked={deliveryMethod === 'pickup'}
+                                onChange={() => setDeliveryMethod('pickup')}
+                                className="w-4 h-4 text-orange-500 focus:ring-orange-500"
+                            />
+                            <span className="text-gray-700">Pickup</span>
+                        </label>
+                    </div>
                 </div>
-            )}
-            <div className="input-group">
-                <label>Payment Method:</label>
-                <select
-                    value={paymentMethod}
-                    onChange={(e) => setPaymentMethod(e.target.value)}
-                >
-                    <option value="card">Card</option>
-                    <option value="cash">Cash</option>
-                    <option value="e-wallet">E-Wallet</option>
-                </select>
-            </div>
-            <div className="summary">
-                <h3>Order Summary</h3>
-                <p>Total Price: ${totalPrice.toFixed(2)}</p>
-            </div>
-            <button className="button" onClick={handleConfirmOrder}>
-                Confirm Order
-            </button>
 
+                {/* Address Input */}
+                {deliveryMethod === 'delivery' && (
+                    <div className="space-y-2">
+                        <label className="block text-sm font-medium text-gray-700">
+                            Delivery Address
+                        </label>
+                        <input
+                            type="text"
+                            value={address}
+                            onChange={(e) => setAddress(e.target.value)}
+                            placeholder="Enter your delivery address"
+                            className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                            required
+                        />
+                    </div>
+                )}
+
+                {/* Payment Method */}
+                <div className="space-y-2">
+                    <label className="block text-sm font-medium text-gray-700">
+                        Payment Method
+                    </label>
+                    <select
+                        value={paymentMethod}
+                        onChange={(e) => setPaymentMethod(e.target.value)}
+                        className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                    >
+                        <option value="card">Card</option>
+                        <option value="cash">Cash</option>
+                        <option value="e-wallet">E-Wallet</option>
+                    </select>
+                </div>
+
+                {/* Order Summary */}
+                <div className="pt-6 border-t border-gray-200">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4">Order Summary</h3>
+                    <p className="text-2xl font-bold text-orange-500">
+                        ${totalPrice.toFixed(2)}
+                    </p>
+                </div>
+
+                {/* Confirm Button */}
+                <button
+                    onClick={handleConfirmOrder}
+                    className="w-full py-3 px-4 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors"
+                >
+                    Confirm Order
+                </button>
+            </div>
+
+            {/* Popup */}
             {showPopup && (
                 <OrderConfirmationPopup
                     orderDetails={orderDetails}

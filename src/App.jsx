@@ -106,30 +106,47 @@ function App() {
 
     return (
         <ErrorBoundary>
-            <div className="App">
-                <header className="header">
-                    <h1 className="logo">FoofFood</h1>
-                    <nav className="nav">
-                        <Link to="/" className="nav-button">Home</Link>
-                        <Link to="/menu" className="nav-button">Menu</Link>
-                        <button className="nav-button" onClick={handleProfileClick}>Profile</button>
-                        {loggedInUser ? (
-                            <button
-                                className="nav-button"
-                                onClick={() => {
-                                    setLoggedInUser(null);
-                                    alert('You have been logged out.');
-                                }}
+        <div className="min-h-screen flex flex-col bg-gray-50">
+            {/* Header */}
+            <header className="bg-white shadow-sm sticky top-0 z-50">
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="flex justify-between items-center h-16">
+                        <h1 className="text-2xl font-bold text-orange-500">FoofFood</h1>
+                        <nav className="hidden md:flex space-x-8">
+                            <Link to="/" className="text-gray-600 hover:text-orange-500 transition-colors">
+                                Home
+                            </Link>
+                            <Link to="/menu" className="text-gray-600 hover:text-orange-500 transition-colors">
+                                Menu
+                            </Link>
+                            <button 
+                                onClick={handleProfileClick}
+                                className="text-gray-600 hover:text-orange-500 transition-colors"
                             >
-                                Logout
+                                Profile
                             </button>
-                        ) : (
-                            <Link to="/login" className="nav-button">Login</Link>
-                        )}
-                    </nav>
-                </header>
-                <div className={`main-container ${location.pathname === '/' ? 'home-layout' : ''}`}>
-                    <Routes>
+                            {loggedInUser ? (
+                                <button
+                                    onClick={() => {
+                                        setLoggedInUser(null);
+                                        alert('You have been logged out.');
+                                    }}
+                                    className="text-gray-600 hover:text-orange-500 transition-colors"
+                                >
+                                    Logout
+                                </button>
+                            ) : (
+                                <Link to="/login" className="text-gray-600 hover:text-orange-500 transition-colors">
+                                    Login
+                                </Link>
+                            )}
+                        </nav>
+                    </div>
+                </div>
+            </header>
+                <main className="flex-grow">
+                    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                        <Routes>
                         <Route path="/" element={<Home />} />
                         <Route
                             path="/login"
@@ -206,13 +223,24 @@ function App() {
                             }
                         />
                     </Routes>
-                </div>
-                <footer className="footer">
-                    <p>&copy; 2025 FoofFood. All rights reserved.</p>
-                    <p>Location: 123 McDonald's Street, Food City</p>
-                    <nav>
-                        <Link to="/">Home</Link> | <Link to="/menu">Menu</Link> | <Link to="/contact">Contact</Link>
-                    </nav>
+                    </div>
+                </main>
+
+                {/* Footer */}
+                <footer className="bg-white border-t border-gray-100">
+                    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                        <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                            <p className="text-sm text-gray-500">&copy; 2025 FoofFood. All rights reserved.</p>
+                            <p className="text-sm text-gray-500">123 McDonald's Street, Food City</p>
+                            <nav className="flex space-x-4">
+                                <Link to="/" className="text-sm text-gray-500 hover:text-orange-500">Home</Link>
+                                <span className="text-gray-300">|</span>
+                                <Link to="/menu" className="text-sm text-gray-500 hover:text-orange-500">Menu</Link>
+                                <span className="text-gray-300">|</span>
+                                <Link to="/contact" className="text-sm text-gray-500 hover:text-orange-500">Contact</Link>
+                            </nav>
+                        </div>
+                    </div>
                 </footer>
             </div>
         </ErrorBoundary>
