@@ -1,0 +1,81 @@
+.admin-dashboard {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.admin-dashboard h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 30px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat h3 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.stat p {
+    font-size: 1em;
+    color: #555;
+}
+
+/* Revenue Stat */
+.stat-item.revenue {
+    background-color: #e0f7fa; /* Light blue-green background */
+    border: 1px solid #007bff; /* Blue border */
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stat-item.revenue h3 {
+    font-size: 1.5em;
+    color: #007bff; /* Blue text */
+    margin-bottom: 10px;
+}
+
+.stat-item.revenue .revenue-amount {
+    font-size: 2em;
+    font-weight: bold;
+    color: #004085; /* Darker blue */
+}
+
+.order-info {
+    padding: 20px 40px; /* Add padding to the left and right */
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.order-info table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.order-info th, .order-info td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.order-info th {
+    background-color: #d52b1e; /* Red header background */
+    color: white;
+}

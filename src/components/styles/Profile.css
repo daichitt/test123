@@ -1,0 +1,61 @@
+.profile-page {
+    text-align: center;
+    padding: 20px;
+}
+
+.profile-page h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.admin-buttons,
+.user-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.admin-buttons button,
+.user-buttons button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.admin-buttons button:hover,
+.user-buttons button:hover {
+    background-color: #0056b3;
+}
+
+.profile {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.profile p {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.profile h3 {
+    margin-top: 30px;
+    color: #d52b1e; /* McDonald's red */
+}

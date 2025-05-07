@@ -1,0 +1,89 @@
+/* Cart Container */
+.cart-container {
+    background-color: #f0f8ff; /* Light blue background */
+    color: #333; /* Dark text color */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: calc(100vh - 100px); /* Full height minus header/footer */
+    overflow-y: auto;
+    margin: 10px;
+}
+
+/* Cart Header */
+.cart-header {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #007acc; /* Blue header */
+}
+
+/* Cart Items */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.item-details {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.item-name {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.item-price {
+    font-size: 1em;
+    color: #007acc;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Cart Footer */
+.cart-footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #007acc;
+}
+
+/* Cart Buttons */
+.cart-button {
+    background-color: #007bff; /* Blue button */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.cart-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Proceed to Checkout Button */
+.cart-footer .cart-button {
+    width: 100%; /* Full width for the checkout button */
+    margin-top: 10px;
+}
